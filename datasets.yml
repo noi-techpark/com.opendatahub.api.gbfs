@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+datasets:
+  bike-bz:
+    endpoint: https://gbfs.otp.opendatahub.com/bz/2.1/gbfs.json
+    description: Bike sharing Bolzano
+    origin: https://bicibolzano.ecospazio.it/
+    license: CC0
+    metadata:
+      type: vehicle-rental
+  bike-papin:
+    endpoint: https://gbfs.otp.opendatahub.com/papin/2.1/gbfs.json
+    description: Bike sharing Papin
+    origin: https://papin.it/
+    license: CC0
+    metadata:
+      type: vehicle-rental

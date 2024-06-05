@@ -1,0 +1,83 @@
+# SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+openapi: 3.0.3
+info:
+  title: Open Data Hub GBFS API
+  description: >
+    API to retrieve GBFS files and related metadata.
+  termsOfService: https://docs.opendatahub.com/en/latest/licenses.html#apis-terms-of-service
+  contact:
+    name: Open Data Hub
+    url: https://opendatahub.com
+    email: help@opendatahub.com
+  license:
+    name: API License
+    url: https://docs.opendatahub.com/en/latest/licenses.html
+  version: V1
+servers:
+  - url: __API_BASE_URL__/v1
+paths:
+  /dataset:
+    get:
+      summary: Get all available datasets
+      responses:
+        200:
+          description: List of dataset metadata
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/dataset-map"
+  /dataset/{datasetId}:
+    get:
+      summary: Get metadata of specific dataset by ID
+      parameters:
+        - $ref: "#/components/parameters/datasetId"
+      responses:
+        200:
+          description: List of dataset metadata
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/dataset"
+        400:
+          description: Invalid dataset ID
+ 
+components:
+  parameters:
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: Dataset ID, as returned in the /v1/dataset/ call
+      schema:
+        type: string
+  schemas:
+    dataset-map:
+      type: object
+      description: Map of datasets by ID (id, dataset). `skyalps-flight-data` and `sta-time-tables` are example IDs
+      properties:
+        skyalps-flight-data:
+          $ref: "#/components/schemas/dataset"
+        sta-time-tables:
+          $ref: "#/components/schemas/dataset"
+        ummadumm-data:
+          $ref: "#/components/schemas/dataset"
+    dataset:
+      type: object
+      description: Metadata of a GBFS dataset
+      properties:
+        description:
+          type: string
+          description: A short description of the dataset
+        origin:
+          type: string
+          description: The provider of the dataset
+        license:
+          type: string
+          description: License under which the dataset is published
+        metadata:
+          type: object
+          description: A free form JSON object that may contain additional metadata
+          additionalProperties: true
