@@ -10,10 +10,31 @@ datasets:
     license: CC0
     metadata:
       type: vehicle-rental
-  bike-papin:
-    endpoint: https://gbfs.otp.opendatahub.com/papin/2.1/gbfs.json
-    description: Bike sharing Papin
-    origin: https://papin.it/
+  bike-merano:
+    endpoint: https://gbfs.otp.opendatahub.com/me/2.1/gbfs.json
+    description: Bike sharing Merano
+    origin: https://portal.moqo.de
     license: CC0
     metadata:
       type: vehicle-rental
+  bike-papin:
+    endpoint: https://gbfs.otp.opendatahub.com/papin/2.1/gbfs.json
+    description: Bike sharing Papin
+    origin: https://papinsport.com/rent-a-bike/
+    license: CC0
+    metadata:
+      type: vehicle-rental
+  carsharing:
+    endpoint: https://carsharing.otp.opendatahub.testingmachine.eu/noi/gbfs.json
+    description: Carsharing Südtirol / Alto Adige
+    origin: https://carsharing.bz.it
+    license: CC0
+    metadata:
+      type: vehicle-rental
+  parking:
+    endpoint: https://parking.otp.opendatahub.com/parking/all.json
+    description: Open Data Hub parking dataset 
+    origin: https://opendatahub.com
+    license: CC0
+    metadata:
+      type: vehicle-parking
